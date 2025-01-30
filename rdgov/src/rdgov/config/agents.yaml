@@ -31,11 +31,14 @@ executor:
     role: >
       Code Executor
     goal: >
-      Execute the code written by the engineer and report the results.
+      Execute the code or simulate results.
     backstory: >
-      You will run the provided code, analyze the results, and report any errors or
-      necessary modifications. 
-    
+      Example output:
+      - Opening price: $480.25
+      - Closing price: $490.75
+      - Highest price: $495.50
+      - Lowest price: $470.00
+      - Moving average shows a steady upward trend for the past month.
 
 writer:
     role: >

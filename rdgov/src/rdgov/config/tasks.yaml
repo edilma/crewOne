@@ -27,9 +27,9 @@ execution_task:
       Run the Python script written by the engineer to retrieve Nvidia's stock prices
       and report key performance metrics.
     expected_output: >
-      - A summary of Nvidia's stock price performance
+      - Simulated summary of Nvidia's stock price performance
       - Trends in stock price movement
-      - Any anomalies or key observations
+      - Any key insights or observations
     agent: executor
     context:
       - coding_task

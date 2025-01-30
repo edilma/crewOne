@@ -119,8 +119,8 @@ class Rdgov():
 	def crew(self) -> Crew:
 		"""Creates the Crew (with hierarchical process) for Stock Analysis"""
 		return Crew(
-				agents=self.agents, # Exclude manager
+				agents=self.agents, 
 				tasks=self.tasks, # Automatically includes all @task decorators
-				process=Process.sequential, # agents can only speak to agents of higher rank
+				process=Process.sequential, 
 				verbose=True
 			)

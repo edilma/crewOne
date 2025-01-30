@@ -1,0 +1,68 @@
+planning_task:
+    description: >
+      Analyze the given task and determine the necessary information required
+      to write a blog post about Nvidia's stock price performance in the past week.
+    expected_output: >
+      A structured plan listing:
+      - What stock data needs to be retrieved
+      - How it will be analyzed
+      - Steps required to write the blog
+    agent: planner
+
+coding_task:
+    description: >
+      Write a Python script to retrieve and analyze Nvidia's stock price data
+      for the past week  and summarize key insights.
+    expected_output: >
+      A Python script that:
+      - Retrieves Nvidia's stock prices from an API
+      - Analyzes trends in price movement
+      - Provides statistical insights
+    agent: engineer
+    context:
+      - planning_task
+
+execution_task:
+    description: >
+      Run the Python script written by the engineer to retrieve Nvidia's stock prices
+      and report key performance metrics.
+    expected_output: >
+      - A summary of Nvidia's stock price performance
+      - Trends in stock price movement
+      - Any anomalies or key observations
+    agent: executor
+    context:
+      - coding_task
+
+writing_task:
+    description: >
+      Write a blog post summarizing Nvidia's stock price performance in April 2024.
+      The blog should include a Markdown-formatted report based on the execution results.
+    expected_output: >
+      A well-structured blog post in Markdown format, including:
+      - Introduction
+      - Key price movements
+      - Trends and insights
+      - Conclusion
+    agent: writer
+    context:
+      - execution_task
+    output_file: 'output/report.md'
+
+admin_task:
+    description: >
+      Review the blog post, provide feedback, and request refinements if needed.
+    expected_output: >
+      A polished and refined version of the blog post.
+    agent: admin
+    context:
+      - writing_task
+
+feedback_task:
+    description: >
+      Collect user feedback on the draft blog post.
+    expected_output: >
+      Feedback provided by the user to improve the post.
+    agent: admin
+    input_prompt: >
+      Please provide your feedback on the blog draft.

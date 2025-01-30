@@ -60,9 +60,9 @@ admin_task:
 
 feedback_task:
     description: >
-      Collect user feedback on the draft blog post.
+      Request feedback from the user to improve the blog post.
     expected_output: >
-      Feedback provided by the user to improve the post.
+     Feedback provided by the user to refine the output.
     agent: admin
     input_prompt: >
-      Please provide your feedback on the blog draft.
+      Please provide feedback on the draft blog post to help refine it.

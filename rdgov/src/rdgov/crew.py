@@ -12,6 +12,13 @@ class Rdgov():
 
 	# --- Define Agents ---
 	@agent
+	def manager_agent(self) -> Agent:
+		return Agent(
+			config=self.agents_config['manager_agent'],
+			verbose=True)
+
+
+	@agent
 	def admin(self) -> Agent:
 		return Agent(
 			config=self.agents_config['admin'],
@@ -117,11 +124,16 @@ class Rdgov():
 	# --- Define the Crew ---
 	@crew
 	def crew(self) -> Crew:
-		"""Creates the Crew for Stock Analysis"""
+		"""Creates the Crew (with hierarchical process) for Stock Analysis"""
+		print("Agents in crew (before assigning manager):")
+		for agent in self.agents:
+			print(f" - {agent.role}")
 
+		print("\nManager agent:", self.manager_agent().role)
 		return Crew(
-			agents=self.agents, # Automatically includes all @agent decorators
+			agents=self.agents, # Exclude manager
 			tasks=self.tasks, # Automatically includes all @task decorators
 			process=Process.hierarchical, # agents can only speak to agents of higher rank
+			manager_agent=self.manager_agent(),
 			verbose=True
 		)

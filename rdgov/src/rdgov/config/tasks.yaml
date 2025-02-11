@@ -36,7 +36,7 @@ execution_task:
 
 writing_task:
     description: >
-      Write a blog post summarizing Nvidia's stock price performance in April 2024.
+      Write a blog post summarizing Metas's stock price performance in December 2025.
       The blog should include a Markdown-formatted report based on the execution results.
     expected_output: >
       A well-structured blog post in Markdown format, including:
